@@ -1,13 +1,18 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ExampleComponent from 'react-otpinput-component'
+import ExampleComponent from "react-otpinput-component";
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <ExampleComponent
+          length={6}
+          onChange={opt => console.log(opt)}
+          separator={<span>-</span>}
+          disabled={false}
+        />
       </div>
-    )
+    );
   }
 }

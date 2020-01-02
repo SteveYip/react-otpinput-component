@@ -1,8 +1,15 @@
-/* add css styles here (optional) */
+.flexDiv {
+  display: flex;
+  align-items: center;
+}
 
-.test {
-  display: inline-block;
-  margin: 2em auto;
-  border: 2px solid #000;
-  font-size: 2em;
+.Input {
+  color: #000;
+  background: #fff;
+  text-align: center;
+  width: 2em !Important;
+  height: 2em;
+  padding-left: 0;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
 }
