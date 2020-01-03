@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 
 import styles from "./styles.css";
 
-export default class ExampleComponent extends Component {
+export default class OtpInput extends Component {
   static propTypes = {
     length: PropTypes.number,
     onChange: PropTypes.func,
-    disabled: PropTypes.bool
+    disabled: PropTypes.bool,
+    separator: PropTypes.object
   };
   constructor(props) {
     super(props);
@@ -37,8 +38,16 @@ export default class ExampleComponent extends Component {
 
   handleOnchange = (value, index) => {
     if (index < this.props.length - 1 && value.length > 0) {
-      console.log("tt");
-      this.refsArray[index + 1].focus();
+      for (let i = index; i < this.props.length; i++) {
+        if (this.refsArray[i].value.length == 0) {
+          this.refsArray[i].focus();
+          break;
+        }
+      }
+    } else if (value.length == 0) {
+      if (index > 0) {
+        this.refsArray[index - 1].focus();
+      }
     }
     this.props.onChange(value);
   };
@@ -64,3 +73,10 @@ export default class ExampleComponent extends Component {
     );
   }
 }
+
+OtpInput.defaultProps = {
+  length: 4,
+  onChange: null,
+  disabled: false,
+  separator: <span></span>
+};
